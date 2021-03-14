@@ -1,4 +1,4 @@
-(ns ach-api.data
+(ns atcoder-choice.data
   (:gen-class))
 
 

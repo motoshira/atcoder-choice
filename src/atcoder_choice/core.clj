@@ -1,6 +1,6 @@
-(ns ach-api.core
+(ns atcoder-choice.core
   (:gen-class)
-  (:require [ach-api.view :as view]
+  (:require [atcoder-choice.view :as view]
             [ring.adapter.jetty :as server]
             [bidi.bidi :as b]
             [bidi.ring :as r]))

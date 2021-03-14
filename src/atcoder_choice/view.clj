@@ -1,6 +1,6 @@
-(ns ach-api.view
+(ns atcoder-choice.view
   (:gen-class)
-  (:require [ach-api.data :as data]
+  (:require [atcoder-choice.data :as data]
             [hiccup.core :as hc]
             [ring.util.response :as res]))
 

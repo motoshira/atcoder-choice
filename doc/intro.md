@@ -1,3 +1,3 @@
-# Introduction to ach-api
+# Introduction to atcoder-choice
 
 TODO: write [great documentation](http://jacobian.org/writing/what-to-write/)

@@ -1,6 +1,6 @@
-(ns ach-api.core-test
+(ns atcoder-choice.core-test
   (:require [clojure.test :refer :all]
-            [ach-api.core :refer :all]))
+            [atcoder-choice.core :refer :all]))
 
 (deftest a-test
   (testing "FIXME, I fail."
