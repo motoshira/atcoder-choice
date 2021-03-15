@@ -2,7 +2,7 @@
   (:gen-class)
   (:require [atcoder-choice.data :as data]
             [hiccup.core :as hc]
-            [ring.util.response :as res]))
+            [ring.util.http-response :as res]))
 
 (def amount-min 1)
 (def amount-max 20)
@@ -11,7 +11,8 @@
 (defn render-view [& items]
   (-> items
       hc/html
-      res/response))
+      res/ok
+      (res/content-type "text/html")))
 
 (defn make-header [title]
   [:head
@@ -90,6 +91,9 @@
         [:input {:class "button go is-link"
                  :type "submit"
                  :value "Go"}]]]]]]))
+
+
+;; TODO
 
 (defn render-result-view [req]
   (render-view
