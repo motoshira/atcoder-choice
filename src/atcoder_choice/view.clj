@@ -93,14 +93,6 @@
                  :type "submit"
                  :value "Go"}]]]]]]))
 
-
-(defn fetch-results [req]
-  (let [problem-info (j/fetch-json j/problem-info-api-url)
-        diff-info (j/fetch-json j/diff-info-api-url)
-        user-submission-info (-> (:username req)
-                                 (j/make-user-submission-url)
-                                 (j/fetch-json))]
-    (for )))
 ;; TODO : parse query parameters
 
 (defn render-result-view [req]
