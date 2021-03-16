@@ -1,6 +1,7 @@
 (ns atcoder-choice.view
   (:gen-class)
   (:require [atcoder-choice.data :as data]
+            [atcoder-choice.json :as j]
             [hiccup.core :as hc]
             [ring.util.http-response :as res]))
 
@@ -93,10 +94,29 @@
                  :value "Go"}]]]]]]))
 
 
-;; TODO
+(defn fetch-results [req]
+  (let [problem-info (j/fetch-json j/problem-info-api-url)
+        diff-info (j/fetch-json j/diff-info-api-url)
+        user-submission-info (-> (:username req)
+                                 (j/make-user-submission-url)
+                                 (j/fetch-json))]
+    (for )))
+;; TODO : parse query parameters
 
 (defn render-result-view [req]
-  (render-view
-   (make-header "AtCoder Choice")
-   [:body
-    [:h1 "Result"]]))
+  (let [results (-> (:username req)
+                    (j/make-user-submission-url)
+                    (j/fetch-json)
+                    )]
+    (render-view
+     (make-header "AtCoder Choice")
+     [:body
+      [:section {:class "navbar is-black"}
+       [:div {:class "navbar is-size-1 is-black"}
+        [:a {:class "navbar-item"}
+         "AtCoder Choice"]]]
+      [:section {:class "columns"}
+       [:div {:class "column"}
+        [:div {:class "box"}
+         [:h1 "Result"]]
+        (for [item results])]]])))

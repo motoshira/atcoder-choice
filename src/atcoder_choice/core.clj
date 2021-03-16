@@ -9,8 +9,10 @@
             ;; [bidi.bidi :as b]
             [bidi.ring :as b.r]))
 
-(defonce server (atom nil))
 
+;; TODO : integrant で依存関係を分離したコードに修正する
+
+;; TODO : "/result" クエリパラメータの扱い
 
 (def routes
   ["/" {"home" {:get view/render-home-view}}
@@ -30,7 +32,10 @@
   (-> (b.r/make-handler routes)
       (r.m.kw/wrap-keyword-params)
       (r.m.p/wrap-params)
-      (r.l/wrap-with-logger)))
+      (r.l/wrap-with-logger)
+      (wrap-exception-handler)))
+
+
 
 (defn start-server []
   (when-not @server
