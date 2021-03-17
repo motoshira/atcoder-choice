@@ -8,12 +8,3 @@
 ;;  - 問題情報の更新クエリ(定時実行・差分だけ？)
 
 (def db-spec {:connection-uri (env :database-url)})
-
-(def insert-problem! [{:keys [problem-id problem-name contest-id difficulty]}]
-  (sql/insert! db-spec :problems nil
-               {:problem-id }))
-
-
-(defn create-table! [db]
-  (sql/query db
-             ))

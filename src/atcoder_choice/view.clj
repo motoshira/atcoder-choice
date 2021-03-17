@@ -93,13 +93,13 @@
                  :type "submit"
                  :value "Go"}]]]]]]))
 
-;; TODO : parse query parameters
-
+;; TODO
+;; - クエリパラメタのパース
+;; - 条件に合うもんだのfilter
 (defn render-result-view [req]
   (let [results (-> (:username req)
                     (j/make-user-submission-url)
-                    (j/fetch-json)
-                    )]
+                    (j/fetch-json))]
     (render-view
      (make-header "AtCoder Choice")
      [:body
@@ -110,5 +110,4 @@
       [:section {:class "columns"}
        [:div {:class "column"}
         [:div {:class "box"}
-         [:h1 "Result"]]
-        (for [item results])]]])))
+         [:h1 "Result"]]]]])))

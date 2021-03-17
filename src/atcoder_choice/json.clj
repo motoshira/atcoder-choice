@@ -6,7 +6,6 @@
 ;; TODO
 ;;  - 問題の情報のfecth
 ;;  - 個人のSubmission情報のfetch
-;;  - JSONデータの変換(db.cljに実装するべき？)
 
 (def diff-info-api-url "https://kenkoooo.com/atcoder/resources/problem-models.json")
 (def problem-info-api-url "https://kenkoooo.com/atcoder/resources/problems.json")
